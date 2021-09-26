@@ -2,10 +2,8 @@ pipeline {
     agent any
     stages{
         stage("Build artifact"){
-            steps{
-             dir('spring-petclinic'){
-              sh "./mvnw package"
-             }
+            steps{             
+              sh "./mvnw package"             
             }
         }
         stage("Delete old artifact"){
@@ -16,7 +14,7 @@ pipeline {
         stage("Build Docker image"){
             steps{
             dir('spring-petclinic/target'){
-              sh "mv *.jar /var/lib/jenkins/workspace/CIDockerpipeline"
+              sh "mv *.jar /var/lib/jenkins/workspace/CD_main"
              }
             }
         }       
