@@ -9,15 +9,11 @@ pipeline {
         stage("Delete old artifact"){
             steps{
              sh "rm *.jar"
-            }
-        }
-        stage("Build Docker image"){
-            steps{
-            dir('target'){
+                dir('target'){
               sh "mv *.jar /var/lib/jenkins/workspace/CD_main"
              }
             }
-        }       
+        }           
     }
 }
 node{
