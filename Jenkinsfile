@@ -13,7 +13,7 @@ pipeline {
         }
         stage("Build Docker image"){
             steps{
-            dir('spring-petclinic/target'){
+            dir('target'){
               sh "mv *.jar /var/lib/jenkins/workspace/CD_main"
              }
             }
