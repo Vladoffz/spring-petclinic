@@ -28,7 +28,7 @@ node{
                 }
             }
             stage("Connect to Kubernetes cluster"){
-               sh "gcloud config set account vladgundarcuk@gmail.com"
+               sh "gcloud auth activate-service-account terraform@learning-324516.iam.gserviceaccount.com --key-file=./learning-324516-717ead57c385.json"
                sh "gcloud container clusters get-credentials lab-final --region us-central1 --project learning-324516"
             }
             stage("Create deployment"){
