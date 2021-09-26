@@ -28,6 +28,7 @@ node{
                 }
             }
             stage("Connect to Kubernetes cluster"){
+               sh "gcloud config set account vladgundarcuk@gmail.com"
                sh "gcloud container clusters get-credentials lab-final --region us-central1 --project learning-324516"
             }
             stage("Create deployment"){
