@@ -26,7 +26,7 @@ node{
                 app = docker.build("learning-324516/petclinic")
             }
             stage("Push image"){
-                docker.withRegistry('https://gcr.io', 'gcr: gcp-admin-key'){
+                docker.withRegistry('https://gcr.io', 'gcr: gcr-admin-key'){
                     app.push("${env.BUILD_NUMBER}")
                     app.push("latest")
                 }
