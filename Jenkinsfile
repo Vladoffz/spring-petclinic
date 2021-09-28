@@ -11,7 +11,6 @@ pipeline {
              sh "rm *.jar"
                 dir('target'){
               sh "mv *.jar /var/lib/jenkins/workspace/CD_main"
-              sh "ls -la"
              }
             }
         }           
