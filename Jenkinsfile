@@ -13,8 +13,8 @@ pipeline {
              // sh "mv *.jar /var/lib/jenkins/jobs/Petclinic-cicd"
              
              //}
-            }
-        }           
+            //}
+        //}           
     }
 }
 node{
