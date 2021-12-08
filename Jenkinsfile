@@ -34,11 +34,11 @@ node{
                sh "gcloud container clusters get-credentials final-lab --region us-central1-c --project learning-333709"
             }
             stage("Create Petclinic deployment"){
-               sh "kubectl delete deploy petclinic"
+               //sh "kubectl delete deploy petclinic"
                sh "kubectl create deploy petclinic --image=gcr.io/learning-333709/petclinic:latest --port=8080"
            }
            stage("Connect deployment LoadBalancer"){
-               sh "kubectl delete svc petclinic"
+               //sh "kubectl delete svc petclinic"
                sh "kubectl expose deploy petclinic --port=8080 --type=LoadBalancer"
            }
     }
