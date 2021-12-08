@@ -20,6 +20,7 @@ pipeline {
 node{
             checkout scm
             stage("Build image"){
+                sh "pwd"
                 app = docker.build("learning-333709/petclinic")
             }
             stage("Push image"){
