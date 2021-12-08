@@ -8,7 +8,7 @@ pipeline {
         }
         stage("Delete old artifact"){
             steps{
-            //sh "rm *.jar"
+             sh "rm *.jar"
                 dir('target'){
              sh "mv *.jar /var/lib/jenkins/workspace/Petclinic-cicd_main"
              
@@ -24,7 +24,7 @@ node{
                 app = docker.build("learning-333709/petclinic")
             }
             stage("Push image"){
-                docker.withRegistry('https://gcr.io', 'gcr:gcr-admin-key'){
+                docker.withRegistry('https://gcr.io', 'gcr:learning-333709'){
                     app.push("${env.BUILD_NUMBER}")
                     app.push("latest")
                 }
