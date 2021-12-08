@@ -40,5 +40,6 @@ node{
            stage("Connect deployment LoadBalancer"){
                sh "kubectl delete svc petclinic"
                sh "kubectl expose deploy petclinic --port=8080 --type=LoadBalancer"
+               sh "kubectl get svc"
            }
     }
