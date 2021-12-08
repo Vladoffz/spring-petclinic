@@ -20,7 +20,7 @@ pipeline {
 node{
             checkout scm
             stage("Build image"){
-                app = docker.build("learning-324516/petclinic")
+                app = docker.build("learning-333709/petclinic")
             }
             stage("Push image"){
                 docker.withRegistry('https://gcr.io', 'gcr:gcr-admin-key'){
@@ -29,12 +29,12 @@ node{
                 }
             }
             stage("Connect to Kubernetes cluster"){
-               sh "gcloud auth activate-service-account terraform@learning-324516.iam.gserviceaccount.com --key-file=./learning-324516-717ead57c385.json"
-               sh "gcloud container clusters get-credentials lab-final --region us-central1 --project learning-324516"
+               sh "gcloud auth activate-service-account terraform@learning-324516.iam.gserviceaccount.com --key-file=./learning-333709-0a968aad1107.json"
+               sh "gcloud container clusters get-credentials final-lab --region us-central1 --project learning-333709"
             }
             stage("Create Petclinic deployment"){
                sh "kubectl delete deploy petclinic"
-               sh "kubectl create deploy petclinic --image=gcr.io/learning-324516/petclinic:latest --port=8080"
+               sh "kubectl create deploy petclinic --image=gcr.io/learning-333709/petclinic:latest --port=8080"
            }
            stage("Connect deployment LoadBalancer"){
                sh "kubectl delete svc petclinic"
