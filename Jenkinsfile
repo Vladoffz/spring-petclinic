@@ -10,7 +10,7 @@ pipeline {
             steps{
              sh "rm *.jar"
                 dir('target'){
-              sh "mv *.jar /var/lib/jenkins/workspace/CD_main"
+              sh "mv *.jar /var/lib/jenkins/jobs/Petclinic-cicd"
               
              }
             }
@@ -29,7 +29,7 @@ node{
                 }
             }
             stage("Connect to Kubernetes cluster"){
-               sh "gcloud auth activate-service-account terraform@learning-324516.iam.gserviceaccount.com --key-file=./learning-333709-0a968aad1107.json"
+               sh "gcloud auth activate-service-account terraform@learning-333709.iam.gserviceaccount.com --key-file=./learning-333709-0a968aad1107.json"
                sh "gcloud container clusters get-credentials final-lab --region us-central1 --project learning-333709"
             }
             stage("Create Petclinic deployment"){
