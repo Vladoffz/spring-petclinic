@@ -11,8 +11,8 @@ pipeline {
             //sh "rm *.jar"
                 //dir('target'){
              // sh "mv *.jar /var/lib/jenkins/jobs/Petclinic-cicd"
-              
-             }
+             
+             //}
             }
         }           
     }
