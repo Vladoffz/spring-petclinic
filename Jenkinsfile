@@ -9,8 +9,8 @@ pipeline {
         stage("Delete old artifact"){
             steps{
             //sh "rm *.jar"
-                dir('target'){
-              sh "mv *.jar /var/lib/jenkins/jobs/Petclinic-cicd"
+                //dir('target'){
+             // sh "mv *.jar /var/lib/jenkins/jobs/Petclinic-cicd"
               
              }
             }
