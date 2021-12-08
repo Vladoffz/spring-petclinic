@@ -31,7 +31,7 @@ node{
             }
             stage("Connect to Kubernetes cluster"){
                sh "gcloud auth activate-service-account terraform@learning-333709.iam.gserviceaccount.com --key-file=./learning-333709-0a968aad1107.json"
-               sh "gcloud container clusters get-credentials final-lab --region us-central1 --project learning-333709"
+               sh "gcloud container clusters get-credentials final-lab --region us-central1-c --project learning-333709"
             }
             stage("Create Petclinic deployment"){
                sh "kubectl delete deploy petclinic"
